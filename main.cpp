@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <stdlib.h> 
 using namespace std;
 
 class BankAccount 
@@ -65,9 +66,7 @@ void BankAccount::updateData(vector<int> &arrAccountNumber, vector<string> &arrF
 
 bool BankAccount::insertData(vector<int> arrAccountNumber)
 {
-    int tempAccountNumber;
-    cout << "Enter Account Number: ";
-    cin >> tempAccountNumber;
+    int tempAccountNumber = rand() % 99999 + 10000;
     for (int i = 0; i < arrAccountNumber.size(); i++) {
         if (tempAccountNumber == arrAccountNumber[i]) {
             cout << "The account number is already exists";
@@ -283,6 +282,7 @@ void BankAccount::deleteRec(vector<int> arrAccountNumber, vector<string> arrFirs
 
 int main()
 {
+    srand (time(NULL));
     BankAccount A;
     vector<int> arrAccountNumber;
     vector<string> arrFirstName;
